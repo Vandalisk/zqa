@@ -8,6 +8,16 @@ Bundler.require(*Rails.groups)
 
 module Zqa
   class Application < Rails::Application
+    config.generators do |g|
+      g.test_framework :rspec,
+                        fixtures: true,
+                        view_spec: false,
+                        routing_specs: false,
+                        helper_specs: false,
+                        request_specs: false,
+                        controller_specs: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
