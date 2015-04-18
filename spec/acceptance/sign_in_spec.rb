@@ -25,7 +25,7 @@ feature 'Siging in', %q{
 
 		expect(page).to have_content 'Invalid email or password.'
 		expect(current_path).to eq new_user_session_path
-	qend
+	end
 =begin
   given(:user) { create(:user) }
 
