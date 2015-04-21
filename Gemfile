@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -49,5 +49,7 @@ end
 
 group :test do
 	gem 'shoulda-matchers'
+	gem 'capybara'
+  gem 'launchy'
 end
 
