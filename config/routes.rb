@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  resources :question do
+
+  resources :questions do
     resources :answers
   end
 
