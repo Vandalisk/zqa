@@ -6,20 +6,19 @@ feature 'User answer', %q{
   	I want to be able to create answers
 } do
 
-	given(:user){create(:user)}
-	given(:question){ create(:question)}
+  given(:user) { create(:user) }
+  given!(:question) { create(:question) }
 
-	scenario 'Authenticated user creates answer' do
-		sign_in(user)
-		visit question_path(question)
+  scenario 'Authenticated user create answer', js: true do
+    sign_in(user)
+    visit question_path(question)
 
-		fill_in 'Your answer', with: 'My answer'
-		click_on 'Create'
+    fill_in 'Your answer', with: 'My answer'
+    click_on 'Create'
 
-		expect(current_path).to eq question_path(question)
-
-		within '.answers' do
-			expect(page).to have_content 'My answer'
-		end
-	end
+    expect(current_path).to eq question_path(question)
+    within '.answers' do
+      expect(page).to have_content 'My answer'
+    end
+  end
 end
