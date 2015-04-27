@@ -8,7 +8,7 @@ ul
 .answers
   = render 'answers'
 
-= form_for [@question, @answer], remote: true do |f|
+= nested_form_for [@question, @answer], remote: true do |f|
   p
     = f.label :body, 'Your answer'
     .answer-errors
@@ -17,4 +17,6 @@ ul
     = f.fields_for :attachments do |a|
       = a.label :file
       = a.file_field :file
+      = a.link_to_remove "Remove this attachment"
+    = f.link_to_add "Add", :attachments
   p= f.submit 'Create'
