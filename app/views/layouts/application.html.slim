@@ -25,11 +25,15 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"Zqa
+          div= link_to "Zqa", root_path, class: "navbar-brand"
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
+              li= link_to "Questions", questions_path
+              li= link_to "Tags", "/path2"
+              li= link_to "Users", "/path1"
+              //li= link_to "Link 2", "/path2"
+              - if can?(:create, Question)
+                li= link_to 'Ask question', new_question_path
               - if user_signed_in?
                 li= link_to "Log out", destroy_user_session_path, method: :delete
               - else
