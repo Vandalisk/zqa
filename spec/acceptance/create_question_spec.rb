@@ -16,21 +16,7 @@ feature 'Create question', %q{
     fill_in 'Title', with: 'Test question'
     fill_in 'Text', with: 'text text text'
     click_on 'Create'
-=begin
-    visit '/questions'
-    click_on 'Ask question'
-    fill_in 'Title', with: 'Test question'
-    fill_in 'Text', with: 'text text text'
-    click_on 'Create'
-=end
+    
     expect(page).to have_content 'Your question successfully created.'
-  end
-
-  scenario 'Non-authenticated user try to create question' do
-    #visit '/questions'
-    visit questions_path
-    click_on 'Ask question'
-
-    expect(page).to have_content 'You need to sign in or sign up before continuing.'
   end
 end
