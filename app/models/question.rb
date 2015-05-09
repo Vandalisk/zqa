@@ -9,4 +9,12 @@ class Question < ActiveRecord::Base
 	accepts_nested_attributes_for :attachments
 
 	default_scope -> { order :created_at }
+
+	before_destroy :destroy_answers
+
+	private
+
+	def destroy_answers
+     self.answers.delete_all   
+    end
 end
