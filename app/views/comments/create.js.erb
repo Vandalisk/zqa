@@ -1,3 +1,5 @@
-var parentSelector = '<%= @parent.is_a?(Question) ? ".question" : "#answer-#{@parent.id}" %>';
-
-$(parentSelector + ' .comments').html('<%= j render "list", parent: @parent %>');
+<% if parent_type == :question %>
+    $('.question .comments').html('<%= j render 'list' %>');
+<% elsif parent_type == :answer %>
+    $('#answer-<%= parent.id %> .answer-comments').html('<%= j render 'list' %>');
+<% end %>

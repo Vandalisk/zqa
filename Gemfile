@@ -47,6 +47,7 @@ gem 'omniauth-facebook'
 gem 'cancancan'
 gem 'doorkeeper'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'inherited_resources'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

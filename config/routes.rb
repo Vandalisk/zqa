@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :questions, concerns: :commentable, shallow: true do
-    resources :answers, concerns: :commentable
+    resources :answers
   end
+  
+  resources :answers, only: [], concerns: :commentable
 
   namespace :api do
     namespace :v1 do

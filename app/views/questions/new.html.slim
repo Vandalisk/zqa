@@ -1,15 +1,13 @@
-= form_for @question do |f|
+= form_for resource do |f|
   p
     = f.label :title
-  p
     = f.text_field :title
   p
     = f.label :body, 'Text'
-  p
     = f.text_area :body
   p Attachments:
   p
-    = f.fields_for :attachments, @question.attachments.build do |a|
+    = f.fields_for :attachments do |a|
       = a.label :file
       = a.file_field :file
 
