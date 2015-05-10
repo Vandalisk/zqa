@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   authorize_resource
 
   def index
-    respond_with(@questions = Question.all)
+    respond_with(@questions = Question.search(params[:search]))
   end
 
   def show
