@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
   use_doorkeeper
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  resources :users
   root to: "questions#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
