@@ -30,7 +30,7 @@ html lang="en"
             ul.nav.navbar-nav
               li= link_to "Questions", questions_path
               li= link_to "Tags", "/path2"
-              li= link_to "Users", "/path1"
+              li= link_to "Users", users_path
               - if can?(:create, Question)
                 li= link_to 'Ask question', new_question_path
               - if user_signed_in?
@@ -47,7 +47,7 @@ html lang="en"
       .row
         .col-lg-9
           = bootstrap_flash
-          = yield
+          = yield          
         .col-lg-3
           .well.sidebar-nav
             h3 Sidebar
@@ -63,3 +63,4 @@ html lang="en"
             li= link_to "About",   "#"
             li= link_to "Contact", "#"
             li= link_to "News", "http://weblog.rubyonrails.org/"
+      = debug(params) if Rails.env.development?
