@@ -57,3 +57,16 @@ footer ul li {
 .form-search {
   margin-top: 10px;
 }
+.comments {
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 11pt;
+  margin-left: 200px;
+}
+.answer {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 200%;
+}
+.edit-answer-link {
+  margin-left: 10%;
+  font-size: 12pt;
+}
