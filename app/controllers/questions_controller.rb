@@ -8,11 +8,7 @@ class QuestionsController < ApplicationController
   authorize_resource
 
   def index
-    if params[:search].blank?
-      respond_with(@questions = Question.all)
-    else
       respond_with(@questions = Question.search(params[:search]))
-    end
   end
 
   def show
