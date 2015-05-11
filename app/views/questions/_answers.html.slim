@@ -12,5 +12,5 @@
             = f.label :body, "Answer"
             = f.text_area :body
             = f.submit 'Save'
-        .comments
-          = render 'comments/list', parent: answer
+    .comments
+      = render 'comments/list', parent: answer

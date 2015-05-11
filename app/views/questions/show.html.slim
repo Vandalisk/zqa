@@ -1,7 +1,8 @@
 .question
   h1= @question.title
   p= @question.body
-  p Attachments:
+  -if @question.attachments.count > 0
+    p Attachments:
   ul
     - @question.attachments.each do |a|
       li= link_to a.file.identifier, a.file.url
@@ -12,14 +13,15 @@
   = render 'answers'
 
 = form_for [@question, @answer], remote: true do |f|
-  p
-    = f.label :body, 'Your answer'
-    .answer-errors
-    = f.text_area :body
-  p
-    = f.fields_for :attachments, @answer.attachments.build do |a|
-      = a.label :file
-      = a.file_field :file
-  p= f.submit 'Create'
+  - if can?(:create, @answer)
+    p
+      = f.label :body, 'Your answer'
+      .answer-errors
+      = f.text_area :body
+    p
+      = f.fields_for :attachments, @answer.attachments.build do |a|
+        = a.label :file
+        = a.file_field :file
+      p= f.submit 'Create'
 
 = subscribe_to "/questions/#{@question.id}/answers"
