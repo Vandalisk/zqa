@@ -8,8 +8,6 @@ class Question < ActiveRecord::Base
 	has_many :attachments, as: :attachmentable
 	has_many :comments, as: :commentable
 
-	after_save ThinkingSphinx::RealTime.callback_for(:question)
-
 	accepts_nested_attributes_for :attachments
 
 	default_scope -> { order :created_at }

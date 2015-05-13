@@ -55,6 +55,7 @@ gem 'doorkeeper'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'will_paginate-bootstrap'
 gem 'acts-as-taggable-on'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
