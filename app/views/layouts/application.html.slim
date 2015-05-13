@@ -25,22 +25,23 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          div= link_to "Zqa", root_path, class: "navbar-brand"
+          div= link_to t('name'), root_path, class: "navbar-brand"
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "Questions", questions_path
-              li= link_to "Tags", "/path2"
-              li= link_to "Users", users_path
+              li= link_to t('questions'), questions_path
+              li= link_to t('tags'), "/path2"
+              li= link_to t('users'), users_path
               - if can?(:create, Question)
-                li= link_to 'Ask question', new_question_path
+                li= link_to t('ask'), new_question_path
               - if user_signed_in?
-                li= link_to "Log out", destroy_user_session_path, method: :delete
+                li= link_to t('logout'), destroy_user_session_path, method: :delete
               - else
-                li= link_to "Log in", new_user_session_path
+                li= link_to t('login'), new_user_session_path
               li
                 = form_tag questions_path, method: :get, class: "form-search"
-                  = text_field_tag 'search', nil, placeholder: 'Enter search term...'
+                  = text_field_tag 'search', nil, placeholder: t('search_cond')
                   button type="submit" class="btn" Search
+
 
 
     .container
@@ -50,17 +51,16 @@ html lang="en"
           = yield          
         .col-lg-3
           .well.sidebar-nav
-            h3 Sidebar
+            h3= t('languages')
             ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
+              li.nav-header
+              li= link_to t('rus'), questions_path(language: "ru")
+              li= link_to t('eng'), questions_path(language: "en")
 
       footer
         .nav
           ul
-            li= link_to "About",   "#"
-            li= link_to "Contact", "#"
-            li= link_to "News", "http://weblog.rubyonrails.org/"
+            li= link_to t('about'),   "#"
+            li= link_to t('contact'), "#"
+            li= link_to t('news'), "http://weblog.rubyonrails.org/"
       = debug(params) if Rails.env.development?
