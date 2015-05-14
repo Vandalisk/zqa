@@ -1,18 +1,43 @@
 = nested_form_for @question do |f|
-  p
-    = f.label :title
-  p
-    = f.text_field :title
-  p
-    = f.label :body, 'Text'
-  p
-    = f.text_area :body
-  p Attachments:
-  p
-    = f.fields_for :attachments do |a|
-      = a.label :file
-      = a.file_field :file
-      = a.link_to_remove "Remove this attachment"
-    = f.link_to_add "Add", :attachments
+  - if I18n.locale == :ru
+    p
+      = f.label :title, "Заголовок вопроса"
+    p
+      = f.text_field :title, class: 'form-control'
+    p
+      = f.label :tag_list, "Теги для вопроса"
+    p
+      = f.text_field :tag_list, class: 'form-control'
+    p
+      = f.label :body, "Описание вопроса"
+    p
+      = f.text_area :body, class: 'form-control'
+    p Прикрепить файлы:
+    p
+      = f.fields_for :attachments, @question.attachments.build do |a|
+        = a.file_field :file
+        = a.link_to_remove "Удалить этот файл"
+      = f.link_to_add "Добавить", :attachments
 
-  p= f.submit 'Create'
+    p= f.submit 'Создать вопрос', class: 'btn btn-primary'
+  - else
+    p
+      = f.label :title, "Title of question"
+    p
+      = f.text_field :title, class: 'form-control'
+    p
+      = f.label :tag_list
+    p
+      = f.text_field :tag_list, class: 'form-control'
+    p
+      = f.label :body, "Description of question"
+    p
+      = f.text_area :body, class: 'form-control'
+    p Attachments:
+    p
+      = f.fields_for :attachments, @question.attachments.build do |a|
+        = a.file_field :file
+        = a.link_to_remove "Remove this attachment"
+      = f.link_to_add "Add", :attachments
+
+    p= f.submit 'Create question', class: 'btn btn-primary'

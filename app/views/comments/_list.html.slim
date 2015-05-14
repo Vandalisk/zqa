@@ -1,0 +1,15 @@
+= render parent.comments
+- if can?(:create, parent.comments)
+	=form_for [parent, parent.comments.build], remote: true do |f|
+	  - if I18n.locale == :ru
+		  p class="form-group"
+		    = f.label :body, 'Коммент'
+		    = f.text_area :body, class: 'form-control'
+		  p
+		    = f.submit 'Оставить комментарий', class: 'btn btn-primary'
+	  - else
+	  	  p class="form-group"
+		    = f.label :body, 'Comment'
+		    = f.text_area :body, class: 'form-control'
+		  p
+		    = f.submit 'Post comment', class: 'btn btn-primary'

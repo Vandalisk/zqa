@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require jquery.remotipart
-//= require jquery_nested_form
+//= require private_pub
 //= require turbolinks
+//= require jquery_nested_form
 //= require_tree .
+

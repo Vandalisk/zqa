@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Zqa
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     config.generators do |g|
       g.test_framework :rspec,
                         fixtures: true,
@@ -32,5 +35,7 @@ module Zqa
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.active_job.queue_adapter = :delayed_job
+    config.i18n.available_locales = [:en, :ru]
   end
 end

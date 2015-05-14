@@ -12,7 +12,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
+gem 'will_paginate', '~> 3.0.6'
+gem 'less-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,7 +25,16 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'active_model_serializers'
+gem 'oj'
+gem 'oj_mimic_json'
 gem 'slim-rails'
+gem 'mysql2'
+gem 'thinking-sphinx'
+# gem 'delayed_job_active_record'
+gem 'whenever'
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', require: nil
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,6 +46,17 @@ gem 'slim-rails'
 gem 'carrierwave'
 gem 'remotipart'
 gem "nested_form"
+gem 'private_pub'
+gem 'thin'
+gem 'responders'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'cancancan'
+gem 'doorkeeper'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'will_paginate-bootstrap'
+gem 'acts-as-taggable-on'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,11 +72,16 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :test do
 	gem 'shoulda-matchers'
 	gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara-webkit'
+  gem 'json_spec'
 end
 
