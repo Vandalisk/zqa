@@ -14,14 +14,25 @@
 
 = form_for [@question, @answer], remote: true do |f|
   - if can?(:create, @answer)
-    p
-      = f.label :body, 'Your answer'
-      .answer-errors
-      = f.text_area :body
-    p
-      = f.fields_for :attachments, @answer.attachments.build do |a|
-        = a.label :file
-        = a.file_field :file
-      p= f.submit 'Create'
+    - if I18n.locale == :ru
+      p
+        = f.label :body, 'Ваш ответ'
+        .answer-errors
+        = f.text_area :body, class: 'form-control'
+      p
+        = f.fields_for :attachments, @answer.attachments.build do |a|
+          = a.label :file
+          = a.file_field :file
+        p= f.submit 'Создать ответ', class: 'btn btn-primary'
+    - else
+      p
+        = f.label :body, 'Your answer'
+        .answer-errors
+        = f.text_area :body, class: 'form-control'
+      p
+        = f.fields_for :attachments, @answer.attachments.build do |a|
+          = a.label :file
+          = a.file_field :file
+        p= f.submit 'Create', class: 'btn btn-primary'
 
 = subscribe_to "/questions/#{@question.id}/answers"

@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_answer, only: :update
+  before_action :load_answer, only: [:update, :destroy]
   after_action :publish_answer, only: :create
 
   respond_to :js
@@ -13,6 +13,12 @@ class AnswersController < ApplicationController
 
   def update
     @answer.update(answer_params)
+  end
+
+  def destroy
+    if @answer.destroy!
+      redirect_to question_path(@answer.question)
+    end
   end
 
   private
