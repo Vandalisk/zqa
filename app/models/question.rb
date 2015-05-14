@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
 	validates :title, :body, presence: true
+
+	acts_as_taggable
 	
 	belongs_to :user
 	has_many :answers

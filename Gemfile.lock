@@ -49,6 +49,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.8)
     arel (6.0.0)
     bcrypt (3.1.10)
@@ -115,6 +117,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     faye (1.1.1)
@@ -346,6 +350,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  acts-as-taggable-on
   byebug
   cancancan
   capybara
@@ -356,6 +361,7 @@ DEPENDENCIES
   devise
   doorkeeper
   factory_girl_rails
+  faker
   jbuilder (~> 2.0)
   jquery-rails
   json_spec
