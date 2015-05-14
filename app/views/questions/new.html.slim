@@ -3,29 +3,37 @@
     p
       = f.label :title, "Заголовок вопроса"
     p
-      = f.text_field :title
+      = f.text_field :title, class: 'form-control'
+    p
+      = f.label :tag_list, "Теги для вопроса"
+    p
+      = f.text_field :tag_list, class: 'form-control'
     p
       = f.label :body, "Описание вопроса"
     p
-      = f.text_area :body
+      = f.text_area :body, class: 'form-control'
     p Прикрепить файлы:
     p
       = f.fields_for :attachments, @question.attachments.build do |a|
         = a.file_field :file
 
-    p= f.submit 'Создать вопрос'
+    p= f.submit 'Создать вопрос', class: 'btn btn-primary'
   - else
     p
       = f.label :title, "Title of question"
     p
-      = f.text_field :title
+      = f.text_field :title, class: 'form-control'
+    p
+      = f.label :tag_list
+    p
+      = f.text_field :tag_list, class: 'form-control'
     p
       = f.label :body, "Description of question"
     p
-      = f.text_area :body
+      = f.text_area :body, class: 'form-control'
     p Attachments:
     p
       = f.fields_for :attachments, @question.attachments.build do |a|
         = a.file_field :file
 
-    p= f.submit 'Create question'
+    p= f.submit 'Create question', class: 'btn btn-primary'
