@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 	before_action :load_question, only: [:show, :edit, :update, :destroy]  
   before_action :build_answer, only: :show
+  before_action :set_user_language, only: [:index]
 
   respond_to :html
 
@@ -46,6 +47,10 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def set_user_language
+    I18n.locale = params[:language]
+  end
 
   def load_question
 	 @question = Question.find(params[:id])
