@@ -29,7 +29,7 @@ html lang="en"
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
               li= link_to t('questions'), questions_path
-              li= link_to t('tags'), "/path2"
+              li= link_to t('tags'), tags_path
               li= link_to t('users'), users_path
               - if can?(:create, Question)
                 li= link_to t('ask'), new_question_path

@@ -6,6 +6,10 @@
   ul
     - @question.attachments.each do |a|
       li= link_to a.file.identifier, a.file.url
+  .name
+    = link_to User.find(@question.user_id).name, user_path(@question.user_id)
+  .time
+    = @question.created_at.strftime("%B %e, %Y at %I:%M")
   .comments
     = render 'comments/list', parent: @question
 
