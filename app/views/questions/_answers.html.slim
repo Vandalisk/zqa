@@ -8,10 +8,14 @@
       - if user_signed_in? && can?(:update, answer)
         p= link_to 'Edit', '', class: 'edit-answer-link', data: { answer_id: answer.id }
         p= link_to 'Delete', answer_path(answer), class: 'delete-answer-link', data: { confirm: 'Are you sure?', method: :delete }
+        .name
+          = link_to User.find(answer.user_id).name, user_path(answer.user_id)
+        .time
+          = answer.created_at.strftime("%B %e, %Y at %I:%M")
         p
           = form_for answer, remote: true, html: { id: "edit-answer-#{answer.id}"} do |f|
             = f.label :body, "Answer"
-            = f.text_area :body
-            = f.submit 'Save'
+            = f.text_area :body, class: 'form-control'
+            = f.submit 'Save', class: 'btn btn-primary'
     .comments
       = render 'comments/list', parent: answer
