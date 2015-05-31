@@ -102,3 +102,10 @@ aside {
     }
   }
 }
+.name {
+  float: right;
+  margin-left: 10px
+}
+.time {
+  float: right;
+}

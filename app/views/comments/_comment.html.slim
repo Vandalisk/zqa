@@ -1,1 +1,6 @@
-p= comment.body
+.comment
+	= comment.body
+	.name
+		= link_to current_user.name, user_path(current_user.id)
+	.time
+		= comment.created_at.strftime("%B %e, %Y at %I:%M")
