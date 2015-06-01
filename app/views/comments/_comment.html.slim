@@ -1,7 +1,8 @@
 .comment
 	= comment.body
 	.dop
-		= link_to 'Delete', comment_path(comment), class: 'delete-answer-link', data: { confirm: 'Are you sure?', method: :delete }
+		- if can?(:destroy, comment)
+			= link_to 'Delete', comment_path(comment), class: 'delete-answer-link', data: { confirm: 'Are you sure?', method: :delete }
 		.name
 			= link_to User.find(comment.user_id).name, user_path(comment.user_id)
 		.time

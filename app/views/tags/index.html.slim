@@ -1,1 +1,5 @@
 h1 = t('tags') + ":"
+.tags
+	- @tags.each do |tag|
+		.tag
+			= link_to tag, "#"

@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ $grayMediumLight: #eaeaea;
  
  footer {
   margin-top: 45px;
@@ -47,9 +48,14 @@ footer ul li {
 }
 .comments {
   padding-top: 20px;
+  padding-bottom: 20px;
   font-family: Verdana, Arial, Helvetica, sans-serif; 
   font-size: 11pt;
   margin-left: 200px;
+}
+.comment {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .answer {
   font-family: 'Times New Roman', Times, serif;
@@ -72,7 +78,7 @@ footer ul li {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayMediumLight;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -100,9 +106,9 @@ aside {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayMediumLight;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid $grayMediumLight;
     }
   }
 }
@@ -114,4 +120,7 @@ aside {
 .time {
   float: right;
   font-size: 10pt;
+}
+.tag {
+  font-size: 14pt;
 }

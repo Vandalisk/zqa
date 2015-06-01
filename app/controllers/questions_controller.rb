@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_action :build_answer, only: :show
   before_action :set_user_language, only: [:index]
 
-  respond_to :html
+  respond_to :html, :json
 
   authorize_resource
 
